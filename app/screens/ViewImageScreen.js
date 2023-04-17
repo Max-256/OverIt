@@ -1,12 +1,43 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 function ViewImageScreen(props) {
   return (
-    <View>
-      <Text>View image screen</Text>
+    <View style={styles.container}>
+      <View style={styles.closeIcon} />
+      <View style={styles.DeleteIcon} />
+
+      <Image style={styles.image} source={require("../assets/chair.jpg")} />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "black",
+    flex: 1,
+  },
+  closeIcon: {
+    width: 35,
+    height: 35,
+    backgroundColor: "skyblue",
+    position: "absolute",
+    top: 20,
+    left: 25,
+  },
+  DeleteIcon: {
+    width: 35,
+    height: 35,
+    backgroundColor: "tomato",
+    position: "absolute",
+    top: 20,
+    right: 25,
+  },
+  image: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "contain",
+  },
+});
 
 export default ViewImageScreen;
