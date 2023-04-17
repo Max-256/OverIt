@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 
-function AppButton({ title, onPress, color }) {
+function AppButton({ title, onPress, color = colors.primary }) {
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: "center",
     justifyContent: "center",
+    marginVertical: 5,
   },
   text: {
     textTransform: "uppercase",

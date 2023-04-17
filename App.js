@@ -10,11 +10,7 @@ export default function App() {
     console.log("button Pressed");
   };
 
-  return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <AppButton title="login" onPress={handlePress} color={colors.primary} />
-    </View>
-  );
+  return <WelcomeScreen />;
 }
 
 const styles = StyleSheet.create({});
