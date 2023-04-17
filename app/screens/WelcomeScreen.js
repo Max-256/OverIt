@@ -5,12 +5,12 @@ import { View, Text, Image } from "react-native";
 function WelcomeScreen(props) {
   return (
     <ImageBackground
-      style={styles.image}
+      style={styles.background}
       source={require("../assets/background.jpg")}
     >
-      <View style={styles.imageContainer}>
+      <View style={styles.logoContainer}>
         <Image style={styles.logo} source={require("../assets/logo-red.png")} />
-        <Text>Sell what you are done with.</Text>
+        <Text>Sell what you don't need</Text>
       </View>
 
       <View style={{ width: "100%", backgroundColor: "tomato", height: 40 }} />
@@ -20,13 +20,15 @@ function WelcomeScreen(props) {
 }
 
 const styles = StyleSheet.create({
-  image: {
+  background: {
     flex: 1,
     justifyContent: "flex-end",
-  },
-  imageContainer: {
     alignItems: "center",
-    top: -350,
+  },
+  logoContainer: {
+    alignItems: "center",
+    position: "absolute",
+    top: 70,
   },
   logo: {
     width: 60,
