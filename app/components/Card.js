@@ -2,13 +2,13 @@ import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 import colors from "../config/colors";
 
-function Card(props) {
+function Card({ image, title, subtitle }) {
   return (
     <View style={styles.card}>
-      <Image source={require("../assets/jacket.jpg")} style={styles.image} />
+      <Image source={image} style={styles.image} />
       <View style={styles.cardBody}>
-        <Text style={styles.title}>Red Jacket for sale</Text>
-        <Text style={styles.subtitle}>$ 100</Text>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>{subtitle}</Text>
       </View>
     </View>
   );
@@ -21,10 +21,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     backgroundColor: colors.white,
+    marginBottom: 20,
   },
   image: {
     width: "100%",
-    height: "75%",
+    height: 190,
     resizeMode: "cover",
   },
   cardBody: {

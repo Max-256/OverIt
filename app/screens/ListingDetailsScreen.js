@@ -6,7 +6,11 @@ import Card from "../components/Card";
 function ListingDetailsScreen(props) {
   return (
     <View style={styles.container}>
-      <Card />
+      <Card
+        image={require("../assets/jacket.jpg")}
+        title="Red Jacket for sale"
+        subtitle="$ 100"
+      />
     </View>
   );
 }
