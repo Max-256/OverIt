@@ -5,13 +5,10 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AppButton from "./app/components/AppButton";
 import colors from "./app/config/colors";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
-  const handlePress = () => {
-    console.log("button Pressed");
-  };
-
-  return <ViewImageScreen />;
+  return <MessagesScreen />;
 }
 
 const styles = StyleSheet.create({});
