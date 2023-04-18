@@ -19,6 +19,7 @@ function ListItem({ image, title, subtitle }) {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
+    padding: 4,
   },
   details: {
     justifyContent: "center",
