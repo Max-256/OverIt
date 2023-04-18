@@ -10,7 +10,11 @@ import Icon from "../components/Icon";
 function MyAccountScreen(props) {
   return (
     <Screen style={styles.container}>
-      <Icon name="email" size={50} backgroundColor="gray" iconColor="white" />
+      <ListItem
+        ImageComponent={<Icon name="email" />}
+        title="My title"
+        subtitle="My Subtitle"
+      />
     </Screen>
   );
 }
