@@ -40,6 +40,8 @@ const allMessages = [
 
 function MessagesScreen(props) {
   const [messages, setMessages] = useState(allMessages);
+  const [refreshing, setRefreshing] = useState(false);
+
   const handleDelete = (msg) => {
     setMessages(messages.filter((m) => m.id !== msg.id));
   };
@@ -61,6 +63,10 @@ function MessagesScreen(props) {
           />
         )}
         ItemSeparatorComponent={ListItemSeperator}
+        refreshing={refreshing}
+        onRefresh={() => {
+          setMessages(allMessages);
+        }}
       />
     </Screen>
   );
