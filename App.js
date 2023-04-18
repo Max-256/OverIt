@@ -11,7 +11,7 @@ export default function App() {
     console.log("button Pressed");
   };
 
-  return <ListingDetailsScreen />;
+  return <ViewImageScreen />;
 }
 
 const styles = StyleSheet.create({});
