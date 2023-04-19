@@ -6,7 +6,8 @@ import AppPicker from "./app/components/AppPicker";
 export default function App() {
   return (
     <Screen>
-      <AppPicker />
+      <AppPicker icon="apps" placeholder="Category" />
+      <AppTextInput icon="email" placeholder="email" />
     </Screen>
   );
 }
