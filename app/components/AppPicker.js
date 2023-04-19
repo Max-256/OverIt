@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import { TextInput, View, StyleSheet, Modal, Button } from "react-native";
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  Modal,
+  Button,
+  FlatList,
+} from "react-native";
 import colors from "../config/colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyles from "../config/styles";
 import AppText from "../components/AppText";
 import { TouchableWithoutFeedback } from "react-native";
 import Screen from "./Screen";
+import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, placeholder, ...otherProps }) {
+function AppPicker({ icon, items }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -17,7 +25,7 @@ function AppPicker({ icon, placeholder, ...otherProps }) {
           {icon && (
             <MaterialCommunityIcons style={styles.icon} size={20} name={icon} />
           )}
-          <AppText style={styles.text}>{placeholder}</AppText>
+          <AppText style={styles.text}>Categories</AppText>
 
           <MaterialCommunityIcons
             style={{ color: colors.medium }}
@@ -29,6 +37,13 @@ function AppPicker({ icon, placeholder, ...otherProps }) {
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button title="close" onPress={() => setModalVisible(false)} />
+          <FlatList
+            data={items}
+            keyExtractor={(item) => item.value.toString()}
+            renderItem={({ item }) => (
+              <PickerItem label={item.label} onPress={() => {}} />
+            )}
+          />
         </Screen>
       </Modal>
     </>
