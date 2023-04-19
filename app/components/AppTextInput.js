@@ -22,12 +22,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
+    paddingHorizontal: 8,
   },
   icon: {
     marginHorizontal: 8,
   },
   textInput: {
-    fontSize: 18,
+    fontSize: 17,
   },
 });
 
