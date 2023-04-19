@@ -1,28 +1,12 @@
 import { StyleSheet } from "react-native";
 import Screen from "./app/components/Screen";
-import AppTextInput from "./app/components/AppTextInput";
-import AppPicker from "./app/components/AppPicker";
 import { useState } from "react";
-
-const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Cameras", value: 3 },
-];
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
   const [category, setCategory] = useState();
 
-  return (
-    <Screen>
-      <AppPicker
-        icon="apps"
-        items={categories}
-        selectedItem={category}
-        onSelectItem={(item) => setCategory(item)}
-      />
-    </Screen>
-  );
+  return <LoginScreen />;
 }
 
 const styles = StyleSheet.create({});
