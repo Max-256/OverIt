@@ -15,7 +15,7 @@ import { TouchableWithoutFeedback } from "react-native";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, items }) {
+function AppPicker({ icon, items, selectedItem, onSelectItem }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -25,7 +25,9 @@ function AppPicker({ icon, items }) {
           {icon && (
             <MaterialCommunityIcons style={styles.icon} size={20} name={icon} />
           )}
-          <AppText style={styles.text}>Categories</AppText>
+          <AppText style={styles.text}>
+            {selectedItem ? selectedItem.label : "Category"}
+          </AppText>
 
           <MaterialCommunityIcons
             style={{ color: colors.medium }}
@@ -41,7 +43,13 @@ function AppPicker({ icon, items }) {
             data={items}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem label={item.label} onPress={() => {}} />
+              <PickerItem
+                label={item.label}
+                onPress={() => {
+                  setModalVisible(false);
+                  onSelectItem(item);
+                }}
+              />
             )}
           />
         </Screen>

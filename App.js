@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 import Screen from "./app/components/Screen";
 import AppTextInput from "./app/components/AppTextInput";
 import AppPicker from "./app/components/AppPicker";
+import { useState } from "react";
 
 const categories = [
   { label: "Furniture", value: 1 },
@@ -10,10 +11,16 @@ const categories = [
 ];
 
 export default function App() {
+  const [category, setCategory] = useState();
+
   return (
     <Screen>
-      <AppPicker icon="apps" items={categories} />
-      <AppTextInput icon="email" placeholder="email" />
+      <AppPicker
+        icon="apps"
+        items={categories}
+        selectedItem={category}
+        onSelectItem={(item) => setCategory(item)}
+      />
     </Screen>
   );
 }
