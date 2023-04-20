@@ -1,10 +1,9 @@
 import React from "react";
 import { Image, StyleSheet } from "react-native";
-import { Formik } from "formik";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
-import AppButton from "../components/AppButton";
+import AppForm from "../components/AppForm";
 import AppFormField from "../components/AppFormField";
 import SubmitButton from "../components/SubmitButton";
 
@@ -18,37 +17,33 @@ function LoginScreen(props) {
     <Screen>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
 
-      <Formik
+      <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        {() => (
-          <>
-            <AppFormField
-              autoCorrect={false}
-              autoCapitalize="none"
-              icon="email"
-              keyboardType="email-address"
-              name="email"
-              placeholder="Email"
-              textContentType="emailAddress"
-            />
+        <AppFormField
+          autoCorrect={false}
+          autoCapitalize="none"
+          icon="email"
+          keyboardType="email-address"
+          name="email"
+          placeholder="Email"
+          textContentType="emailAddress"
+        />
 
-            <AppFormField
-              autoCapitalize="none"
-              autoCorrect={false}
-              icon="lock"
-              name="password"
-              placeholder="Password"
-              secureTextEntry
-              textContentType="password"
-            />
+        <AppFormField
+          autoCapitalize="none"
+          autoCorrect={false}
+          icon="lock"
+          name="password"
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
 
-            <SubmitButton title="login" />
-          </>
-        )}
-      </Formik>
+        <SubmitButton title="login" />
+      </AppForm>
     </Screen>
   );
 }
