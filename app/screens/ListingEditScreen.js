@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
-import AppPicker from "../components/AppPicker";
-import { Alert } from "react-native";
+import AppFormPicker from "../components/forms/AppFormPicker";
 
 const validationSchema = Yup.object().shape({
-  title: Yup.string().required().min(3).max(50).label("Title"),
+  title: Yup.string().required().min(1).label("Title"),
   price: Yup.number().required().label("Price"),
-  description: Yup.string().required().min(3).label("Description"),
+  description: Yup.string().label("Description"),
+  category: Yup.object().required().nullable().label("Category"),
 });
 
 const categories = [
@@ -20,8 +20,6 @@ const categories = [
 ];
 
 function ListingEditScreen(props) {
-  const [selectedItem, setSelectedItem] = useState();
-
   return (
     <Screen>
       <AppForm
@@ -29,17 +27,13 @@ function ListingEditScreen(props) {
           title: "",
           price: "",
           description: "",
+          category: null,
         }}
-        onSubmit={(values) => {
-          if (!selectedItem) {
-            Alert.alert("Please select a category");
-            return;
-          }
-          console.log({ ...values, category: selectedItem.label });
-        }}
+        onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
         <AppFormField
+          maxLength={255}
           autoCorrect={false}
           autoCapitalize="none"
           name="title"
@@ -49,19 +43,21 @@ function ListingEditScreen(props) {
         <AppFormField
           autoCorrect={false}
           autoCapitalize="none"
-          keyboardType="number-pad"
+          keyboardType="numeric"
           name="price"
           placeholder="price"
         />
 
-        <AppPicker
-          icon="apps"
+        <AppFormPicker
           items={categories}
-          selectedItem={selectedItem}
-          onSelectItem={(item) => setSelectedItem(item)}
+          name="category"
+          placeholder="Category"
         />
 
         <AppFormField
+          maxLength={255}
+          multiline
+          numberOfLines={2}
           autoCapitalize="none"
           autoCorrect={false}
           name="description"
