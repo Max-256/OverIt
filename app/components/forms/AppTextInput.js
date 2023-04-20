@@ -8,7 +8,7 @@ function AppTextInput({ icon, ...otherProps }) {
   return (
     <View style={styles.container}>
       {icon && (
-        <MaterialCommunityIcons style={styles.icon} size={20} name={icon} />
+        <MaterialCommunityIcons style={styles.icon} size={25} name={icon} />
       )}
       <TextInput style={defaultStyles.text} {...otherProps} />
     </View>
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.light,
     borderRadius: 25,
-    padding: 3,
+    padding: 10,
     flexDirection: "row",
     alignItems: "center",
     width: "100%",
