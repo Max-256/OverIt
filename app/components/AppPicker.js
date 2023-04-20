@@ -15,7 +15,7 @@ import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 import AppButton from "./AppButton";
 
-function AppPicker({ icon, items, selectedItem, onSelectItem }) {
+function AppPicker({ icon, items, selectedItem, onSelectItem, placeholder }) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -25,9 +25,12 @@ function AppPicker({ icon, items, selectedItem, onSelectItem }) {
           {icon && (
             <MaterialCommunityIcons style={styles.icon} size={20} name={icon} />
           )}
-          <AppText style={styles.text}>
-            {selectedItem ? selectedItem.label : "Category"}
-          </AppText>
+
+          {selectedItem ? (
+            <AppText style={styles.text}>{selectedItem.label}</AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
 
           <MaterialCommunityIcons
             style={{ color: colors.medium }}
@@ -78,9 +81,12 @@ const styles = StyleSheet.create({
     marginRight: 8,
     color: colors.medium,
   },
-  text: {
+  placeholder: {
     flex: 1,
     color: colors.medium,
+  },
+  text: {
+    flex: 1,
   },
 });
 
