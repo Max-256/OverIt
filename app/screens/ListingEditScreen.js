@@ -49,6 +49,7 @@ function ListingEditScreen(props) {
         />
 
         <AppFormPicker
+          icon="apps"
           items={categories}
           name="category"
           placeholder="Category"
